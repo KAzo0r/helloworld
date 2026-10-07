@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tashkent Innovates | Smart City</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=7a2bd3c5-55e1-4c74-8b83-a44ea2df17c4" type="text/javascript"></script>
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <nav class="navbar">
+        <div class="logo">Tashkent<span>Innovates</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Главная</a></li>
+            <li><a href="#projects">Проекты</a></li>
+            <li><a href="#demo">Live Demo</a></li>
+            <li><a href="#about">О проекте</a></li>
+        </ul>
+        <a href="#join" class="btn btn-primary nav-btn">Присоединиться</a>
+    </nav>
+
+    <header id="home" class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1 class="glitch" data-text="URBAN HACK: TASHKENT">URBAN HACK: TASHKENT</h1>
+            <p>Создай цифровое будущее Ташкента вместе с нами. Два масштабных проекта, неограниченные возможности.</p>
+            <div class="hero-actions">
+                <a href="#projects" class="btn btn-primary">Смотреть проекты</a>
+                <a href="#join" class="btn btn-secondary">Участвовать</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Вниз</span>
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+        </div>
+    </header>
+
+    <section id="projects" class="projects">
+        <div class="section-header">
+
+            <p>Выберите свой путь и внесите вклад в развитие умного города</p>
+        </div>
+
+        <div class="projects-container">
+            <!-- Virtual Tashkent -->
+            <div class="project-card reveal">
+                <div class="project-image">
+                    <img src="assets/virtual_tashkent.jpg" alt="Virtual Tashkent 3D">
+                    <div class="project-badge">VR / 3D</div>
+                </div>
+                <div class="project-info">
+                    <h3>Virtual Tashkent 🌆</h3>
+                    <p>Интерактивная 3D-модель Ташкента. Разработайте платформу, где пользователи смогут виртуально перемещаться по городу, изучать архитектуру, историю и открывать для себя главные достопримечательности столицы в захватывающем формате.</p>
+                    <ul class="project-features">
+                        <li><span>🌐</span> WebGL & Three.js</li>
+                        <li><span>🏛️</span> Исторические памятники</li>
+                        <li><span>🎮</span> Геймификация</li>
+                    </ul>
+                    <a href="http://localhost:5173/3d" class="btn btn-outline" target="_blank">Перейти в 3D Город (React)</a>
+                </div>
+            </div>
+
+            <!-- Smart Tashkent -->
+            <div class="project-card reverse reveal">
+                <div class="project-image">
+                    <img src="assets/smart_tashkent.jpg" alt="Smart Tashkent Map">
+                    <div class="project-badge">Data / IoT</div>
+                </div>
+                <div class="project-info">
+                    <h3>Smart Tashkent 🏙️</h3>
+                    <p>Интерактивная карта умного города. Создайте систему мониторинга городских данных в реальном времени: отслеживание пробок, умные парковки, рейтинг школ и больниц, а также навигация до ближайших станций зарядки электромобилей.</p>
+                    <ul class="project-features">
+                        <li><span>🗺️</span> Геоинформационные системы</li>
+                        <li><span>📊</span> Аналитика данных</li>
+                        <li><span>⚡</span> Инфраструктура EV</li>
+                    </ul>
+                    <a href="http://localhost:5173/map" class="btn btn-outline" target="_blank">Открыть Smart Map (React)</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="demo" class="demo-section reveal">
+        <div class="section-header">
+            <h2>Smart City Live Demo</h2>
+            <p>Интерактивная карта: пробки, метро, инфраструктура</p>
+        </div>
+        <div class="map-container">
+            <div id="smart-map"></div>
+            <div class="map-overlay">
+                <div class="overlay-panel">
+                    <h3>Слои данных</h3>
+                    <label class="layer-control">
+                        <input type="checkbox" id="layer-traffic" checked> 
+                        <span class="checkmark"></span>🚦 Пробки (Live)
+                    </label>
+                    <label class="layer-control">
+                        <input type="checkbox" id="layer-metro" checked> 
+                        <span class="checkmark"></span>🚇 Метрополитен
+                    </label>
+                    <label class="layer-control">
+                        <input type="checkbox" id="layer-ev" checked> 
+                        <span class="checkmark"></span>⚡ Зарядки EV
+                    </label>
+                    <label class="layer-control">
+                        <input type="checkbox" id="layer-bus" checked> 
+                        <span class="checkmark"></span>🚌 Остановки
+                    </label>
+                </div>
+                <div class="overlay-stats">
+                    <div class="stat-box">
+                        <span class="stat-value" id="aqi-value">42</span>
+                        <span class="stat-label">AQI (Воздух)</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-value" id="traffic-score">...</span>
+                        <span class="stat-label">Балл пробок</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="join" class="cta-section reveal">
+        <div class="cta-container">
+            <h2>Готов изменить город?</h2>
+            <p>Регистрация уже открыта. Собери команду, выбери проект и покажи, на что ты способен.</p>
+            <form class="join-form" id="joinForm">
+                <input type="text" id="reg-name" placeholder="Имя / Название команды" required>
+                <input type="email" id="reg-email" placeholder="Email адрес" required>
+                <select id="reg-track" required>
+                    <option value="" disabled selected>Выберите трек</option>
+                    <option value="virtual">Virtual Tashkent 🌆</option>
+                    <option value="smart">Smart Tashkent 🏙️</option>
+                </select>
+                <button type="submit" class="btn btn-primary btn-block">Зарегистрироваться</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">Tashkent<span>Innovates</span></div>
+            <p>&copy; 2026 Tashkent Innovates. Все права защищены.</p>
+            <div class="social-links">
+                <a href="#">Telegram</a>
+                <a href="#">Instagram</a>
+                <a href="#">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

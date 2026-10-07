@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+/* Hide Maplibre logo and attribution everywhere */
+.maplibregl-ctrl-bottom-left, .maplibregl-ctrl-bottom-right {
+    display: none !important;
+}
+/* Map dark theme inversion only applies when light-theme is not active */
+body:not(.light-theme) .dark-map .maplibregl-canvas { filter: invert(100%) hue-rotate(180deg) brightness(85%) contrast(90%); }
+/* Universal Light Theme Overrides */
+body.light-theme {
+  background-color: #f3f4f6 !important;
+  color: #111827 !important;
+}
+body.light-theme .bg-\[\#0a0a0f\], 
+body.light-theme .bg-\[\#050505\], 
+body.light-theme .bg-black, 
+body.light-theme .bg-black\/50, 
+body.light-theme .bg-black\/80,
+body.light-theme .bg-black\/90,
+body.light-theme .bg-black\/40 {
+  background-color: #ffffff !important;
+  color: #111827 !important;
+}
+body.light-theme .text-white,
+body.light-theme .text-white\/90,
+body.light-theme .text-white\/80,
+body.light-theme .text-white\/70,
+body.light-theme .text-white\/60,
+body.light-theme .text-white\/50 { 
+    color: #111827 !important; 
+}
+body.light-theme .text-gray-100,
+body.light-theme .text-gray-200,
+body.light-theme .text-gray-300,
+body.light-theme .text-gray-400,
+body.light-theme .text-gray-500 { 
+    color: #1f2937 !important; 
+}
+body.light-theme ::placeholder {
+    color: #6b7280 !important;
+}
+body.light-theme .border-white\/10,
+body.light-theme .border-white\/20,
+body.light-theme .border-white\/30 {
+  border-color: #e5e7eb !important;
+}
+body.light-theme .bg-white\/5 { background-color: #f9fafb !important; }
+body.light-theme .bg-white\/10 { background-color: #f3f4f6 !important; }
+body.light-theme .bg-white\/20 { background-color: #e5e7eb !important; }
+body.light-theme input, body.light-theme select {
+    background-color: #f9fafb !important;
+    color: #111827 !important;
+    border-color: #d1d5db !important;
+}
+body.light-theme .maplibregl-popup-content {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+/* --- Clean up Google Translate Widget --- */
+#google_translate_element {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.goog-te-gadget {
+    color: transparent !important;
+    font-size: 0px !important;
+}
+.goog-te-gadget span {
+    display: none !important;
+}
+.goog-te-gadget img {
+    display: none !important;
+}
+.goog-te-combo {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    padding: 6px 12px !important;
+    border-radius: 8px !important;
+    font-size: 14px !important;
+    outline: none !important;
+    cursor: pointer !important;
+    margin: 0 !important;
+    font-family: inherit !important;
+    backdrop-filter: blur(10px);
+}
+.goog-te-combo option {
+    background-color: #111 !important;
+    color: white !important;
+}
+.goog-logo-link, .goog-logo-link img {
+    display: none !important;
+}
+/* Hide the top banner from Google Translate */
+body { top: 0 !important; }
+.skiptranslate iframe { display: none !important; }
+
+/* Hide Google translate tooltips on hover */
+#goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
+.goog-text-highlight { background: none !important; box-shadow: none !important; }
+
+/* Light Theme overrides for Translate */
+body.light-theme .goog-te-combo {
+    background-color: #f3f4f6 !important;
+    color: #111827 !important;
+    border-color: #d1d5db !important;
+}
+body.light-theme .goog-te-combo option {
+    background-color: #ffffff !important;
+    color: #111827 !important;
+}

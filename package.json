@@ -1,0 +1,16 @@
+{
+  "name": "tashkent-innovates",
+  "version": "1.0.0",
+  "description": "Smart Tashkent Platform",
+  "main": "backend/server.js",
+  "scripts": {
+    "dev": "node backend/server.js",
+    "start": "node backend/server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "iconv-lite": "^0.7.3",
+    "sqlite3": "^5.1.7"
+  }
+}
