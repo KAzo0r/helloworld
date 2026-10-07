@@ -187,7 +187,10 @@ export default function FoodDelivery() {
 
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(async (pos) => {
-        const { longitude, latitude } = pos.coords;
+        let { longitude, latitude } = pos.coords;
+        if (latitude < 41.1 || latitude > 41.5 || longitude < 69.0 || longitude > 69.5) {
+            latitude = 41.311081; longitude = 69.240562;
+        }
         setUserPos([longitude, latitude]);
         const addr = await reverseGeocode(longitude, latitude);
         setAddress(addr);

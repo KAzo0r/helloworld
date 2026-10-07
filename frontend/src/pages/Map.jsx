@@ -99,7 +99,11 @@ export default function MapPage() {
     if ("geolocation" in navigator) {
         navigator.geolocation.getCurrentPosition(
             (position) => {
-                const loc = { lat: position.coords.latitude, lng: position.coords.longitude };
+                let loc = { lat: position.coords.latitude, lng: position.coords.longitude };
+                // Если пользователь физически находится не в Ташкенте (например, тестирует из другой страны), мокаем его в центр Ташкента
+                if (loc.lat < 41.1 || loc.lat > 41.5 || loc.lng < 69.0 || loc.lng > 69.5) {
+                    loc = { lat: 41.311081, lng: 69.240562 };
+                }
                 setUserLoc(loc);
                 setViewState(prev => ({ ...prev, longitude: loc.lng, latitude: loc.lat, zoom: 15 }));
             },
